@@ -5,5 +5,14 @@ export default defineConfig({
 	plugins: [sveltekit()],
 	test: {
 		include: ['src/**/*.{test,spec}.{js,ts}']
-	}
+	},
+	build: {
+    outDir: './build',
+    // emptyOutDir: true,
+  },
+	server: {
+		fs: {
+				allow: ["public/"]
+		}
+}
 });
