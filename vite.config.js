@@ -1,18 +1,19 @@
 import { sveltekit } from '@sveltejs/kit/vite';
 import { defineConfig } from 'vitest/config';
+import { resolve } from 'path'
 
 export default defineConfig({
 	plugins: [sveltekit()],
-	test: {
-		include: ['src/**/*.{test,spec}.{js,ts}']
-	},
 	build: {
-    outDir: './build',
-    // emptyOutDir: true,
-  },
+		rollupOptions: {
+			input: {
+				main: resolve(__dirname, 'src/app.html'),
+			},
+		},
+	},
 	server: {
 		fs: {
-				allow: ["public/"]
+			allow: ["public/"]
 		}
-}
+	}
 });
