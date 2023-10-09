@@ -1,4 +1,4 @@
-let base = "";
+let base = "/sveltekit-github-pages";
 let assets = base;
 const initial = { base, assets };
 function reset() {
